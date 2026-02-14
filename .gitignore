@@ -1,0 +1,9 @@
+coco_data/
+__pycache__/
+coco_feats/
+coco_faiss_indexes/
+faiss_indexes/
+processed_data/
+outputs/
+wandb/
+results/
