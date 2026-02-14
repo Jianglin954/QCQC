@@ -7,9 +7,9 @@ EOF
 
 mkdir -p results
 
-levels=(low median high)    #  
+levels=(low median high)    
 
-models=(model_ADS model_DSA model_SAD model_SA)       # [model_ADS, model_DSA, model_SAD, model_SA]
+models=(model_ADS model_DSA model_SAD)       # [model_ADS, model_DSA, model_SAD]
 
 base_command="CUDA_VISIBLE_DEVICES=0 python ./src/inference.py \
   --cmpl_k 1 \

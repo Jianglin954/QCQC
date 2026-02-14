@@ -1,9 +1,13 @@
 # Seeing Through Words: Controlling Visual Retrieval Quality with Language Models
 
+<div align="center">
+
 [![Paper](https://img.shields.io/badge/Paper-ICLR_2026-blue)](https://openreview.net/forum?id=yOEmEXmbV8)
 [![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Model-yellow)](https://huggingface.co/Johnny050407/QCQC/)
 
-**Authors:** [Jianglin Lu](https://jianglin954.github.io/), [Simon Jenni](https://sjenni.github.io/), [Kushal Kafle](https://kushalkafle.com/), [Jing Shi](https://jshi31.github.io/jingshi/), [Handong Zhao](https://hdzhao.github.io/), [Yun Fu](https://www1.ece.neu.edu/~yunfu/)
+[Jianglin Lu](https://jianglin954.github.io/), [Simon Jenni](https://sjenni.github.io/), [Kushal Kafle](https://kushalkafle.com/), [Jing Shi](https://jshi31.github.io/jingshi/), [Handong Zhao](https://hdzhao.github.io/), [Yun Fu](https://www1.ece.neu.edu/~yunfu/)
+
+</div>
 
 ---
 
@@ -21,7 +25,7 @@ We propose **Quality-Conditioned Query Completion (QCQC)**, a query completion f
 
 ## Overview
 
-We use **MS-COCO** as the running example: download data, build a search index, generate auxiliary quality scores (aesthetic, IQA, relevance), tokenize and train the QCQC model, then run retrieval. The steps below walk through the full pipeline.
+We use **MS-COCO** and **GPT-2** as the running example: download data, build a search index, generate auxiliary quality scores (aesthetic, IQA, relevance), tokenize the data, train the QCQC model, and then run retrieval. The steps below walk through the full pipeline.
 
 ---
 
@@ -126,6 +130,11 @@ torchrun --nproc_per_node=8 --master_port=1221 ./src/train.py \
 bash src/inference.sh 
 ```
 
+### 4. Upload to Huggingface
+```bash
+cd ..
+hf upload Johnny050407/QCQC QCQC
+```
 ---
 
 
