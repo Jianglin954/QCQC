@@ -11,6 +11,8 @@
 
 ---
 
+<img src="./imgs/ICLR26_poster.png">
+
 ## Why QCQC?
 
 Text-to-image retrieval usually optimizes for **relevance** only. In practice you often care about **quality** too: more aesthetic photos, fewer blurry or low-IQA images, or a custom trade-off. We call this **Quality-Controllable Retrieval (QCR)**, a new setting where retrieval can be explicitly conditioned on user-defined quality requirements.
