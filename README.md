@@ -169,7 +169,7 @@ If you use this code or idea in your work, please cite:
 @inproceedings{JianglinQCQC2026,
   title     = {Seeing Through Words: Controlling Visual Retrieval Quality with Language Models},
   author    = {Jianglin Lu and Simon Jenni and Kushal Kafle and Jing Shi and Handong Zhao and Yun Fu},
-  booktitle = {The Fourteenth International Conference on Learning Representations (ICLR)},
+  booktitle = {The Fourteenth International Conference on Learning Representations},
   year      = {2026},
   url       = {https://openreview.net/forum?id=yOEmEXmbV8},
 }
