@@ -4,7 +4,7 @@
   const grid = document.getElementById("results-grid");
   if (!grid || typeof DB === "undefined") return;
 
-  const img = path => "static/images/results/" + path.split("/").pop();
+  const img = path => "static/images/qualitative/" + path.split("/").pop();
 
   const head = document.createElement("div");
   head.className = "col-head";
