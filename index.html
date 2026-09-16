@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seeing Through Words: Controlling Visual Retrieval Quality with Language Models.">
+  <meta property="og:title" content="Seeing Through Words: Controlling Visual Retrieval Quality with Language Models">
+  <meta property="og:description" content="A language model completes a short query under aesthetic and relevance controls; the completed query steers what an image retriever returns.">
+  <meta property="og:image" content="static/images/demo_poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>Seeing Through Words</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+
+<!-- ======================= hero ======================= -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Seeing Through Words:<br>Controlling Visual Retrieval Quality with Language Models</h1>
+
+          <h1 class="venue">ICLR 2026</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="mailto:jianglinlu@outlook.com">Jianglin Lu</a><sup>1,2</sup>,&#8192;</span>
+            <span class="author-block">Simon Jenni<sup>1</sup>,&#8192;</span>
+            <span class="author-block">Kushal Kafle<sup>1</sup>,&#8192;</span>
+            <span class="author-block">Jing Shi<sup>1</sup>,&#8192;</span>
+            <span class="author-block">Handong Zhao<sup>1</sup>,&#8192;</span>
+            <span class="author-block">Yun Fu<sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span><sup>1</sup>Adobe Research&#8192;</span>
+            <span><sup>2</sup>Northeastern University</span>
+          </div>
+
+          <div class="footnote">
+            Work done during an internship at Adobe Research. Corresponding author:
+            <a href="mailto:jianglinlu@outlook.com">jianglinlu@outlook.com</a>.
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2602.21175" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a>
+            </span>
+            <span class="link-block">
+              <a href="https://openreview.net/forum?id=yOEmEXmbV8" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-open-access"></i></span><span>OpenReview</span></a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/Jianglin954/QCQC" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a>
+            </span>
+            <span class="link-block">
+              <a href="demo/index.html" class="external-link button is-normal is-rounded is-primary-dark">
+                <span class="icon"><i class="fas fa-magnifying-glass"></i></span><span>Live demo</span></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= teaser video ======================= -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" poster="static/images/demo_poster.jpg" autoplay muted loop playsinline controls>
+        <source src="static/videos/demo_video.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        One index, one query prefix, three quality profiles. The language model rewrites
+        <i>“a train”</i> under <b>aesthetic</b> and <b>relevance</b> controls, and the rewritten query
+        decides which image comes back — and how good it is.
+        <a href="demo/index.html">Try it yourself&nbsp;→</a>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= abstract ======================= -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <!-- TODO: paste the abstract from the paper here. The text below is a placeholder
+             summary written from the title and the qualitative table. -->
+        <div class="content has-text-justified">
+          <p>
+            Text-to-image retrieval is a fundamental task in vision-language learning, yet in real-world scenarios it is often challenged by short and underspecified user queries. Such queries are typically only one or two words long, rendering them semantically ambiguous, prone to collisions across diverse visual interpretations, and lacking explicit control over the quality of retrieved images. To address these issues, we propose a new paradigm of quality-controllable retrieval, which enriches short queries with contextual details while incorporating explicit notions of image quality. Our key idea is to leverage a generative language model as a query completion function, extending underspecified queries into descriptive forms that capture fine-grained visual attributes such as pose, scene, and aesthetics. We introduce a general framework that conditions query completion on discretized quality levels, derived from relevance and aesthetic scoring models, so that query enrichment is not only semantically meaningful but also quality-aware. The resulting system provides three key advantages: 1) flexibility, it is compatible with any pretrained vision-language model (VLMs) without modification; 2) transparency, enriched queries are explicitly interpretable by users; and 3) controllability, enabling retrieval results to be steered toward user-preferred quality levels. Extensive experiments demonstrate that our proposed approach significantly improves retrieval results and provides effective quality control, bridging the gap between the expressive capacity of modern VLMs and the underspecified nature of short user queries. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= how it works ======================= -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">How it works</h2>
+        <div class="columns is-centered pipeline-row">
+          <div class="column">
+            <div class="pipeline-card">
+              <div class="pipeline-num">1</div>
+              <h3>A short query prefix</h3>
+              <p>The user types something underspecified, such as <i>“a train”</i>. On its own it pins
+                down the subject but says nothing about composition, setting or style.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="pipeline-card">
+              <div class="pipeline-num">2</div>
+              <h3>Quality-controlled completion</h3>
+              <p>A language model continues the prefix conditioned on the requested
+                <span class="tag-aes">aesthetic</span> and <span class="tag-rel">relevance</span>
+                levels, turning the control into words.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="pipeline-card">
+              <div class="pipeline-num">3</div>
+              <h3>Unchanged retrieval</h3>
+              <p>The completed query is embedded and matched against the image index. The retriever
+                is frozen — all of the control lives in the text.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= quality levels ======================= -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">What Low, Medium and High mean</h2>
+        <div class="content has-text-justified">
+          <p>
+            Each control level is a band of the score distribution over the corpus: images are ranked
+            by aesthetic score and by image–text similarity, and the two distributions are split into
+            <span class="lvl low">Low</span>, <span class="lvl med">Medium</span> and
+            <span class="lvl high">High</span> regions that the completions are trained to target.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image"><img src="static/images/distribution_coco_train_aes.png" alt="aesthetic score distribution on MS-COCO"></figure>
+            <p class="caption">Aesthetic score — <b>MS-COCO</b></p>
+          </div>
+          <div class="column">
+            <figure class="image"><img src="static/images/distribution_coco_train_sim.png" alt="image-text similarity distribution on MS-COCO"></figure>
+            <p class="caption">Image–text similarity — <b>MS-COCO</b></p>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image"><img src="static/images/distribution_cc_aes.png" alt="aesthetic score distribution on Flickr2.4M"></figure>
+            <p class="caption">Aesthetic score — <b>Flickr2.4M</b></p>
+          </div>
+          <div class="column">
+            <figure class="image"><img src="static/images/distribution_cc_sim_faiss.png" alt="image-text similarity distribution on Flickr2.4M"></figure>
+            <p class="caption">Image–text similarity — <b>Flickr2.4M</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= qualitative results ======================= -->
+<section class="section pt-0">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Query completions and what they retrieve</h2>
+    <p class="section-lead">
+      Every row is one query prefix. Left to right, the requested quality goes up; the completion,
+      the retrieved image and both scores change with it. <span class="mono">Aes</span> is the
+      aesthetic score, <span class="mono">Rel</span> the image–text similarity.
+    </p>
+    <div id="results-grid"></div>
+  </div>
+</section>
+
+<!-- ======================= interactive demo ======================= -->
+<section class="section pt-0">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Interactive demo</h2>
+    <div class="content">
+      <p>
+        The same table, as a search engine: type a query, pick an aesthetic and a relevance level,
+        and watch the completion and the retrieved image change.
+      </p>
+    </div>
+    <a href="demo/index.html" class="button is-large is-rounded is-primary-dark">
+      <span class="icon"><i class="fas fa-magnifying-glass"></i></span><span>Open the demo</span></a>
+  </div>
+</section>
+
+<!-- ======================= bibtex ======================= -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@inproceedings{lu2026seeing,
+  title     = {Seeing Through Words: Controlling Visual Retrieval Quality with Language Models},
+  author    = {Lu, Jianglin and Jenni, Simon and Kafle, Kushal and Shi, Jing and Zhao, Handong and Fu, Yun},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This page is built on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            project page template, licensed under
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="demo/data.js"></script>
+<script src="static/js/index.js"></script>
+</body>
+</html>

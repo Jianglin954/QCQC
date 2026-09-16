@@ -1,0 +1,82 @@
+/* Project page styling — Nerfies/Bulma template, with the paper's quality palette.
+   low = darkblue, medium = darkgreen, high = darkred (as in the LaTeX table). */
+:root{
+  --low:#1b2f7a; --low-soft:#e8ecfb;
+  --med:#0f6b2f; --med-soft:#e6f4ea;
+  --high:#8f1d1d; --high-soft:#fbeaea;
+  --aes-accent:#6b3fa0; --aes-tint:#f4f0fb;
+  --rel-accent:#0f6e7a; --rel-tint:#ecf7f8;
+  --ink:#16181d; --muted:#6b7280; --line:#e4e7ec;
+}
+body{font-family:'Noto Sans',sans-serif;color:var(--ink)}
+.section{padding-top:3rem}
+.section.pt-0{padding-top:0}
+
+/* ---------- hero ---------- */
+/* type scale copied from the LGI-LS project page */
+.publication-title{font-family:'Google Sans',sans-serif;line-height:1.25}
+.venue{font-size:23px;font-weight:bold;margin-top:1rem}
+.publication-authors{font-family:'Google Sans',sans-serif;margin-top:1rem}
+.publication-authors a{color:var(--high);text-decoration:none;border-bottom:1px solid rgba(143,29,29,.3)}
+.footnote{font-size:15px;margin-top:.7rem;color:var(--muted)}
+.publication-links{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.button.is-primary-dark{background:var(--high);color:#fff}
+.button.is-primary-dark:hover{background:#7a1818;color:#fff}
+
+/* ---------- teaser ---------- */
+.hero.teaser video{width:100%;display:block;border-radius:12px;box-shadow:0 8px 28px rgba(16,24,40,.16);background:#f6f7f9}
+.hero.teaser .subtitle{margin-top:1.2rem;font-size:1rem!important;color:#4b5563;line-height:1.6}
+
+/* ---------- how it works ---------- */
+.pipeline-row{margin-top:1rem}
+.pipeline-card{height:100%;border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;background:#fff}
+.pipeline-num{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:.8rem;font-weight:700}
+.pipeline-card h3{margin:.7rem 0 .4rem;font-size:1rem;font-weight:700}
+.pipeline-card p{font-size:.92rem;color:#4b5563;line-height:1.55}
+.tag-aes{background:var(--aes-tint);color:var(--aes-accent);padding:1px 7px;border-radius:5px;font-weight:600}
+.tag-rel{background:var(--rel-tint);color:var(--rel-accent);padding:1px 7px;border-radius:5px;font-weight:600}
+
+/* ---------- quality levels ---------- */
+.lvl{padding:1px 8px;border-radius:5px;font-weight:700}
+.lvl.low{background:var(--low-soft);color:var(--low)}
+.lvl.med{background:var(--med-soft);color:var(--med)}
+.lvl.high{background:var(--high-soft);color:var(--high)}
+.caption{text-align:center;font-size:.85rem;color:var(--muted);margin-top:.4rem}
+
+/* ---------- qualitative results ---------- */
+.section-lead{max-width:780px;margin:0 auto 2rem;text-align:center;color:#4b5563;font-size:.95rem;line-height:1.6}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+.result-row{display:grid;grid-template-columns:118px repeat(3,1fr);gap:14px;align-items:stretch;margin-bottom:18px}
+.row-prefix{display:flex;align-items:center;justify-content:flex-end;text-align:right;font-size:1.05rem;font-weight:700;font-style:italic;padding-right:4px;color:var(--ink)}
+.res-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.res-card.low{border-top:3px solid var(--low)}
+.res-card.medium{border-top:3px solid var(--med)}
+.res-card.high{border-top:3px solid var(--high)}
+.res-card img{width:100%;height:178px;object-fit:cover;display:block}
+.res-body{padding:10px 13px 13px}
+.res-tag{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.res-card.low .res-tag{color:var(--low)}
+.res-card.medium .res-tag{color:var(--med)}
+.res-card.high .res-tag{color:var(--high)}
+.res-q{font-size:.9rem;font-style:italic;line-height:1.45;margin:6px 0 9px;min-height:3.6em}
+.res-card.low .res-q .cmp{color:var(--low)}
+.res-card.medium .res-q .cmp{color:var(--med)}
+.res-card.high .res-q .cmp{color:var(--high)}
+.res-scores{display:flex;gap:14px;font-family:ui-monospace,Menlo,monospace;font-size:.78rem;color:var(--muted)}
+.res-scores b{color:var(--ink)}
+.col-head{display:grid;grid-template-columns:118px repeat(3,1fr);gap:14px;margin-bottom:10px}
+.col-head div{text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.col-head .h-low{color:var(--low)}
+.col-head .h-medium{color:var(--med)}
+.col-head .h-high{color:var(--high)}
+
+@media screen and (max-width:900px){
+  .result-row,.col-head{grid-template-columns:1fr}
+  .row-prefix{justify-content:flex-start;text-align:left;padding:6px 0 2px}
+  .col-head{display:none}
+}
+
+/* ---------- bibtex / footer ---------- */
+#BibTeX pre{background:#f6f7f9;border-radius:10px;font-size:.85rem;overflow-x:auto}
+.footer{padding:2.5rem 1.5rem;background:#fafbfc}
+.footer .content{font-size:.85rem;color:var(--muted)}

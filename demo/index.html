@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seeing Through Words — Quality-Controlled Visual Search</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">QCQC<span class="logo-dot"> </span>Search Engine</span>
+      <span class="tagline">Seeing Through Words: Controlling Visual Retrieval Quality with Language Models</span>
+    </div>
+  </header>
+
+  <section class="searchzone">
+    <div class="searchbar">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="22" y2="22"></line></svg>
+      <input id="query" type="text" autocomplete="off" spellcheck="false" placeholder="Type a query, e.g. a train">
+      <span class="ghost" id="ghost"></span>
+      <button id="go" class="go">Search</button>
+    </div>
+
+    <div class="controls">
+      <div class="ctrl-group" data-dim="aes">
+        <span class="ctrl-label">Aesthetic</span>
+        <button class="qbtn" data-dim="aes" data-level="low">Low</button>
+        <button class="qbtn" data-dim="aes" data-level="medium">Medium</button>
+        <button class="qbtn" data-dim="aes" data-level="high">High</button>
+      </div>
+      <div class="ctrl-sep"></div>
+      <div class="ctrl-group" data-dim="rel">
+        <span class="ctrl-label">Relevance</span>
+        <button class="qbtn" data-dim="rel" data-level="low">Low</button>
+        <button class="qbtn" data-dim="rel" data-level="medium">Medium</button>
+        <button class="qbtn" data-dim="rel" data-level="high">High</button>
+      </div>
+      <div class="ctrl-sep"></div>
+      <button id="compare" class="ghostbtn">Compare all levels</button>
+    </div>
+  </section>
+
+  <section class="stage" id="stage">
+
+    <div class="pipeline">
+      <div class="step" id="step-llm">
+        <div class="step-head"><span class="num">1</span> Quality-conditioned query completion</div>
+        <div class="prompt-line">
+          <span class="tok" id="tok-aes">&lt;aes=?&gt;</span>
+          <span class="tok" id="tok-rel">&lt;rel=?&gt;</span>
+          <span class="prompt-text">complete: “<span id="prompt-prefix">…</span>”</span>
+          <span class="dots" id="llm-dots"><i></i><i></i><i></i></span>
+        </div>
+        <div class="completion" id="completion">
+          <span class="c-prefix" id="c-prefix"></span><span class="c-rest" id="c-rest"></span><span class="caret" id="caret"></span>
+        </div>
+      </div>
+
+      <div class="step" id="step-ret">
+        <div class="step-head"><span class="num">2</span> CLIP retrieval over the image index</div>
+        <div class="retline"><span id="ret-status">waiting for query…</span><span class="latency" id="latency"></span></div>
+        <div class="bar"><div class="bar-fill" id="ret-bar"></div></div>
+      </div>
+
+      <div class="step" id="step-tbl">
+        <div class="step-head"><span class="num">3</span> Cached quality profiles for this query</div>
+        <table class="ptable" id="ptable"><tbody></tbody></table>
+      </div>
+    </div>
+
+    <div class="result" id="result">
+      <div class="result-empty" id="result-empty">
+        <div class="empty-icon">◎</div>
+        <p>Pick a query and a quality profile — the LLM rewrites the query, the rewritten query decides what comes back.</p>
+      </div>
+
+      <div class="card" id="card">
+        <div class="card-img"><img id="res-img" alt="retrieved image"><span class="rank">top-1</span></div>
+        <div class="card-meta">
+          <div class="profile-tag" id="profile-tag">Rel: High · Aes: High</div>
+          <div class="card-query" id="card-query"></div>
+          <div class="scores">
+            <div class="score" id="score-aes">
+              <div class="score-top"><span>Aesthetic</span><b id="aes-val">0.000</b></div>
+              <div class="sbar"><div class="sbar-fill" id="aes-bar"></div></div>
+              <div class="score-foot"><span>1</span><span id="aes-delta"></span><span>10</span></div>
+            </div>
+            <div class="score" id="score-rel">
+              <div class="score-top"><span>Relevance</span><b id="rel-val">0.000</b></div>
+              <div class="sbar"><div class="sbar-fill" id="rel-bar"></div></div>
+              <div class="score-foot"><span>0.30</span><span id="rel-delta"></span><span>0.45</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice" id="notice"></div>
+
+      <div class="compare-grid" id="compare-grid"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span id="foot-note">Scores and completions are the cached results reported in the paper’s qualitative table (MS-COCO).</span>
+  </footer>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
