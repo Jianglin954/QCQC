@@ -4,6 +4,8 @@
 
 [![Paper](https://img.shields.io/badge/Paper-ICLR_2026-blue)](https://openreview.net/forum?id=yOEmEXmbV8)
 [![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Model-yellow)](https://huggingface.co/Johnny050407/QCQC/)
+[![Website](https://img.shields.io/badge/Website-Project_Page-brightgreen)](https://jianglin954.github.io/QCQC/)
+[![Demo](https://img.shields.io/badge/Demo-Try_it_live-red)](https://jianglin954.github.io/QCQC/demo/)
 
 [Jianglin Lu](https://jianglin954.github.io/), [Simon Jenni](https://sjenni.github.io/), [Kushal Kafle](https://kushalkafle.com/), [Jing Shi](https://jshi31.github.io/jingshi/), [Handong Zhao](https://hdzhao.github.io/), [Yun Fu](https://www1.ece.neu.edu/~yunfu/)
 
